@@ -31,8 +31,8 @@ module.exports = require("./webpack.config.js")({
     bootstrap: ["./src/bootstrap.ts", "webpack-hot-middleware/client"],
   },
   output: {
-    filename: "[name].dev.js",
-    chunkFilename: "[name].dev.js",
+    filename: "[name].[hash:64].dev.js",
+    chunkFilename: "[name].[hash:64].dev.js",
   },
   plugins,
   target: "web",

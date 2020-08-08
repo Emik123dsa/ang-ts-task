@@ -1,28 +1,29 @@
-const express = require("express");
+import * as  express from "express";
 
-const PORT = process.env.NODE_PORT || 3000;
+import * as dotenv from "dotenv";
 
-const dotenv = require("dotenv");
+import * as  bodyParser from "body-parser";
 
-const bodyParser = require("body-parser");
+import * as path from "path";
 
-const path = require("path");
-
-const webpack = require("webpack");
+import * as webpack from "webpack";
 
 const app = express();
 
 const webpackConfig = require("../webpack.dev.config.babel");
 
-const webpackMiddleware = require("webpack-dev-middleware");
+import * as webpackMiddleware from "webpack-dev-middleware";
 
-const webpackHotMiddleware = require("webpack-hot-middleware");
+import * as webpackHotMiddleware from "webpack-hot-middleware";
 
 const webpackCompiler = webpack(webpackConfig);
 
-const wpmw = webpackMiddleware(webpackCompiler, {});
+const wpmw = webpackMiddleware(webpackCompiler);
 
 dotenv.config();
+
+
+const PORT = process.env.NODE_ENV || 3000;
 
 app.use(wpmw);
 
